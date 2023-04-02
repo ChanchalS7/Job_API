@@ -6,13 +6,14 @@ const errroMiddelware = (err, req, res, next) => {
 		message: err,
 	};
 
-	// missing filled error
+	// missing field error
 	if (err.name === "ValidationError") {
 		defaultErrors.statusCode = 400;
 		defaultErrors.message = Object.values(err.errors)
 			.map((item) => item.message)
 			.join(",");
 	}
+
 
 	// duplicate error
 	if (err.code && err.code === 11000) {
