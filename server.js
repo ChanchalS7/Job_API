@@ -12,7 +12,7 @@ import testRoutes from "./routes/testRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import errroMiddelware from "./middlewares/errorMiddleware.js"
 import userRoutes from "./routes/userRoutes.js";
-import jobsRoutes from "./routes/jobsRoute.js";
+import jobsRoutes from "./routes/jobsRoute.js"
 //Dot ENV config
 dotenv.config();
 
