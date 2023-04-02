@@ -7,28 +7,34 @@ import cors from "cors";
 import morgan from 'morgan';
 //files import 
 import connectDB from './config/db.js';
-import testRoutes from "./routes/testRoutes.js"
-//rest object 
-const app = express();
+import testRoutes from "./routes/testRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
+import errroMiddelware from "./middlewares/errorMiddleware.js"
 
-//dotENV config
-dotenv.config() // {path:'./config/}
 
-//mongodb connection 
+//Dot ENV config
+dotenv.config();
+
+// mongodb connection
 connectDB();
 
-//middleware 
-app.use(express.json())
-app.use(cors())
-app.use(morgan('dev'));
+//rest object
+const app = express();
+
+//middelwares
+app.use(express.json());
+app.use(cors());
+app.use(morgan("dev"));
 
 
-//routes 
-app.get('/', (req, res) => {
-	res.send(`<h1>Welcome to My Job Portal</h1>`)
-})
 
-app.use('/api/v1/test', testRoutes)
+//routes
+app.use("/api/v1/test", testRoutes);
+app.use("/api/v1/auth", authRoutes);
+
+
+//validation middelware
+app.use(errroMiddelware);
 //port 
 const PORT = process.env.PORT || 8080
 //listen 
