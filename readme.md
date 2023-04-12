@@ -70,3 +70,5 @@ Hashing-> Auth & Token -> User API ->JOBS api -> Stats & Filters ->More Security
     and authorize with token, then you can crate the job and get the overall
     job.
     this is the job api
+18. Job API-2 : Update the job- we update the job using .patch method
+    Delete the job- we delete the job using .delte method
